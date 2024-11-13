@@ -8,21 +8,17 @@ while True:
     numberToGuess = random.randint(1, 10)
 
     playCount = 0
-    userScore = 0
-    userGuess = prompt(f'Guess #{playCount + 1}: ')
+    userGuess = int(input(f'Guess #{playCount + 1}: '))
 
-    if userGuess == numberToGuess:
-        print('You got it!')
-        score += 10
-        playCount += 1
+    while userGuess != numberToGuess:
     
-    elif userGuess < numberToGuess:
-        print('Too low')
-        playCount += 1
+        if userGuess <= numberToGuess:
+            print('Too low')
+            playCount += 1
 
-    elif userGuess > numberToGuess:
-        print('Too high')
-        playCount+= 1
+        elif userGuess >= numberToGuess:
+            print('Too high')
+            playCount+= 1
     
 
     if playCount >= 3:
