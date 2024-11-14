@@ -6,10 +6,6 @@ import csv
 userScore = 0
 userName = input('Name: ')
 
-with open('scores.csv', 'a') as csvfile:
-    writer = csv.writer(csvfile)
-    writer.writerow([userName, userScore])
-
 print("I'm thinking of a number between 1 and 10, guess it")
 
 while True:
@@ -26,6 +22,9 @@ while True:
             if (userGuess == numberToGuess):
                 print("Well done, you got it")
                 userScore += 10
+                with open('scores.csv', 'a') as csvfile:
+                    writer = csv.writer(csvfile)
+                    writer.writerow([userName, userScore])
                 break
             elif (userGuess < numberToGuess):
                 print("Too low")
