@@ -1,8 +1,6 @@
 import random
 import csv
 
-
-
 userScore = 0
 userName = input('Name: ')
 
@@ -21,11 +19,24 @@ while True:
 
             if (userGuess == numberToGuess):
                 print("Well done, you got it")
-                userScore += 10
-                with open('scores.csv', 'a') as csvfile:
-                    writer = csv.writer(csvfile)
-                    writer.writerow([userName, userScore])
+
+                if (playCount == 1):        
+                    userScore += 10
+                    with open('Python\scores.csv', 'a') as csvfile:
+                        writer = csv.writer(csvfile)
+                        writer.writerow([userName, userScore])
+                elif (playCount == 2):
+                    userScore += 5
+                    with open('Python\scores.csv', 'a') as csvfile:
+                        writer = csv.writer(csvfile)
+                        writer.writerow([userName, userScore])
+                else:
+                    userScore += 3
+                    with open('Python\scores.csv', 'a') as csvfile:
+                        writer = csv.writer(csvfile)
+                        writer.writerow([userName, userScore])
                 break
+            
             elif (userGuess < numberToGuess):
                 print("Too low")
             else:
