@@ -4,6 +4,11 @@ import csv
 userScore = 0
 userName = input('Name: ')
 
+with open('Python\scores.csv', 'r') as csvfile:
+    reader = csv.reader(csvfile)
+    for row in reader:
+        print(row)
+
 print("I'm thinking of a number between 1 and 10, guess it")
 
 while True:
@@ -22,16 +27,10 @@ while True:
 
                 if (playCount == 1):        
                     userScore += 10
-                    with open('Python\scores.csv', 'a') as csvfile:
-                        csvfile.write('\n' + userName + ', ' + str(userScore))
                 elif (playCount == 2):
                     userScore += 5
-                    with open('Python\scores.csv', 'a') as csvfile:
-                        csvfile.write('\n' + userName + ', ' + str(userScore))
                 else:
                     userScore += 3
-                    with open('Python\scores.csv', 'a') as csvfile:
-                        csvfile.write('\n' + userName + ', ' + str(userScore))
                 break
             
             elif (userGuess < numberToGuess):
@@ -50,4 +49,6 @@ while True:
             break 
 
     if (userGuess == numberToGuess):
+        with open('Python\scores.csv', 'a') as csvfile:
+            csvfile.write('\n' + userName + ', ' + str(userScore))
         break
