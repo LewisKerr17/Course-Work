@@ -23,18 +23,15 @@ while True:
                 if (playCount == 1):        
                     userScore += 10
                     with open('Python\scores.csv', 'a') as csvfile:
-                        writer = csv.writer(csvfile)
-                        writer.writerow([userName, userScore])
+                        csvfile.write('\n' + userName + ', ' + str(userScore))
                 elif (playCount == 2):
                     userScore += 5
                     with open('Python\scores.csv', 'a') as csvfile:
-                        writer = csv.writer(csvfile)
-                        writer.writerow([userName, userScore])
+                        csvfile.write('\n' + userName + ', ' + str(userScore))
                 else:
                     userScore += 3
                     with open('Python\scores.csv', 'a') as csvfile:
-                        writer = csv.writer(csvfile)
-                        writer.writerow([userName, userScore])
+                        csvfile.write('\n' + userName + ', ' + str(userScore))
                 break
             
             elif (userGuess < numberToGuess):
