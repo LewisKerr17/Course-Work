@@ -1,0 +1,98 @@
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit
+}
+
+* {margin: 0; padding: 0;}
+header {
+    background-color: red;
+    height: 150px;
+}
+
+#logo {
+    width: 250px;
+    height: 150px;
+    background-color: pink;
+}
+
+/* Nav */
+
+nav {
+    background-color: blue;
+}
+
+nav ul {
+    float: left;
+    width: 100%;
+    list-style: none;
+}
+
+nav li {
+    float: left;
+}
+
+nav li a {
+    padding: 10px 20px;
+    background-color: blue;
+    color: white;
+    text-decoration: none;
+    display: block;
+}
+
+nav li a:hover {
+    background-color: white;
+    color: blue;
+}
+
+/* Main */
+
+main {
+    padding: 30px 0px;
+    clear: both;
+}
+
+article {
+    width: 66%;
+    float: left;
+}
+
+aside {
+    float: right;
+    width: 32%;
+}
+
+main h1 {
+    color: red;
+    font-size: 3em;
+    font-weight: bold;
+    margin: 0px 0px 50px 0px;
+}
+
+main p {
+    margin: 0px 9px 10px 0px;
+}
+
+main img {
+    float: right;
+    width: 200px;
+    height: 200px;
+    margin: 0px 0px 20px 20px;
+}
+
+/* Footer */
+
+footer {
+    background-color: blue;
+    height: 200px;
+    clear: both;
+}
+
+/* Clearfix */
+
+.group::after {
+    content: "";
+    display: table;
+    clear: both;
+}
