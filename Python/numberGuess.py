@@ -18,7 +18,7 @@ with open('Python/scores.csv', 'r') as csvfile:
 
 highScoresWithName.sort(reverse=True)
 print('Top 5 scores')
-print(highScoresWithName[:5])
+print(highScoresWithName[0:5])
 
 print("I'm thinking of a number between 1 and 10, guess it")
 
@@ -64,7 +64,7 @@ while True:
         with open('Python/scores.csv', 'r') as csvfile:
             reader = csv.DictReader(csvfile, fieldnames=fieldNames)
 
-            if len(highScoresInt) < 5 or userScore > min(highScoresInt[:5]):
+            if len(highScoresInt) < 5 or userScore > min(highScoresInt[0:5]):
                 with open('Python/scores.csv', 'a', newline='') as csvfile:
                     writer = csv.DictWriter(csvfile, fieldnames=fieldNames)
                     writer.writerow({'Name': userName, 'Score': userScore})
