@@ -3,11 +3,14 @@ import csv
 
 userScore = 0
 userName = input('Name: ')
+fieldNames = ['Name', 'Score']
+highScores = []
 
-with open('Python\scores.csv', 'r') as csvfile:
-    reader = csv.reader(csvfile)
+with open('Python/scores.csv', 'r') as csvfile:
+    reader = csv.DictReader(csvfile, fieldnames=fieldNames)
     for row in reader:
-        print(row)
+        highScores.append(row['Score'])
+        print(row['Name'], highScores)
 
 print("I'm thinking of a number between 1 and 10, guess it")
 
@@ -49,6 +52,11 @@ while True:
             break 
 
     if (userGuess == numberToGuess):
-        with open('Python\scores.csv', 'a') as csvfile:
-            csvfile.write('\n' + userName + ', ' + str(userScore))
+        with open('Python/scores.csv', 'r') as csvfile:
+            reader = csv.DictReader(csvfile, fieldnames=fieldNames)
+            if userScore >= highScores[:5]:
+                with open('Python/scores.csv', 'a') as csvfile:
+                    writer = csv.DictWriter(csvfile, fieldnames=fieldNames)
+                    writer.writerow({userName, userScore})
+
         break
